@@ -1,0 +1,35 @@
+# Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Environment and virtual environment
+.env
+venv/
+.venv/
+env/
+ENV/
+*.env
+
+# Jupyter/IPython
+.ipynb_checkpoints
+
+# VS Code settings
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Replit-specific
+.replit
+.nix
+*.sqlite3
+
+# Logs
+*.log
+
+# Dataset backups or large data
+*.csv
+!Cricket_data.csv  # (keep only if this file is required in the repo)
