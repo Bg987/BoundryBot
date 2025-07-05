@@ -1,32 +1,19 @@
-import pandas as pd
-import re
-from model_util import ask_claude
+# test.py
 
-# Load IPL data
-df = pd.read_csv("cricket_data.csv")
+from process_data import get_filtered_data, get_full_data
+from model_util import ask
 
-#get year from question
-def extract_year(text):
-    match = re.search(r"(20\d{2})", text)
-    return int(match.group(1)) if match else None
+question = input("❓ Enter your IPL question: ")
 
-#filter data based on year extracted from the question due to limit of token limit
-def get_filtered_data(message):
-    year = extract_year(message)
-    if year:
-        filtered = df[df["season"] == year]
-        if not filtered.empty:
-            return filtered.to_string(index=False), f"✅ Showing data for question {message}"
-        else:
-            return df.head(30).to_string(index=False), f"⚠️ No data for {year}, showing"
-    else:
-        return df.head(30).to_string(index=False), "ℹ️ No year found."
+#acccess full dataset
+# data_to_send = get_full_data()
 
-question = input("❓ Enter your IPL question for specific year : ")
+# Option 2: Use filtered dataset based on year
+data_to_send, info = get_filtered_data(question)
 
-# Filter data + ask Claude
-filtered_data, info = get_filtered_data(question)
 print("🔎", info)
-response = ask_claude(question, filtered_data)
 
-print("\n🤖 Claude's answer:\n", response)
+# Ask the model
+response = ask(question, data_to_send)
+
+print("\n📤 Answer:\n", response)

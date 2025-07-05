@@ -8,7 +8,7 @@ from model_util import ask_claude
 
 load_dotenv()
 
-df = pd.read_csv("Cricket_data.csv")
+df = pd.read_csv("matches.csv")
 
 def extract_year(text):
     match = re.search(r"(20\d{2})", text)

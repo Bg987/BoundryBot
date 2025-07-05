@@ -1,0 +1,4 @@
+anthropic==0.25.1       # Claude 3 official SDK
+python-telegram-bot==20.3  # Telegram bot support
+pandas==2.2.2           # For CSV/data processing
+python-dotenv==1.0.1    # Load API keys from .env

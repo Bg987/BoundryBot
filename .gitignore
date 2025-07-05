@@ -1,35 +1,33 @@
 # Python cache and compiled files
 __pycache__/
-*.py[cod]
+*.pyc
 *.pyo
 *.pyd
+*.DS_Store
 
-# Environment and virtual environment
+# Environment
 .env
-venv/
-.venv/
-.env/
-ENV/
 *.env
 
-# Jupyter/IPython
-.ipynb_checkpoints
+# Jupyter / notebook checkpoints (if used)
+.ipynb_checkpoints/
 
-# VS Code settings
+# VSCode / IDE files
 .vscode/
+.idea/
 
 # OS files
-.DS_Store
 Thumbs.db
+.DS_Store
 
-# Replit-specific
-.replit
-.nix
-*.sqlite3
+# Virtual environment (optional, if you're using venv)
+venv/
+.env/
+env/
 
-# Logs
+# Logs or debug files (if any)
 *.log
 
-# Dataset backups or large data
-*.csv
-!Cricket_data.csv  # (keep only if this file is required in the repo)
+# CSVs (optional, if you want to ignore dataset files in Git)
+# Remove this line if you want to keep matches.csv in your repo
+# matches.csv

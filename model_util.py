@@ -1,22 +1,27 @@
-import openai
+import cohere
 import os
 from dotenv import load_dotenv
 
 load_dotenv()
-openai.api_key = os.getenv("OPENROUTER_API_KEY")
-openai.api_base = "https://openrouter.ai/api/v1"
 
-def ask_claude(question, dataset_text):
-    messages = [
-        {"role": "system", "content": "You are an IPL cricket expert. Use the given data to answer the question only answer not steps or explantion."},
-        {"role": "user", "content": f"DATA:\n{dataset_text}\n\nQUESTION:\n{question}"}
-    ]
+co = cohere.Client(os.getenv("COHERE_API_KEY"))
+
+def ask(question, dataset_text):
+    prompt = (
+        "You are an IPL cricket expert. "
+        "Answer only based on the data below. Give only answer .\n\n"
+        f"DATA:\n{dataset_text}\n\n"
+        f"QUESTION:\n{question}"
+    )
 
     try:
-        response = openai.ChatCompletion.create(
-            model="deepseek/deepseek-chat",
-            messages=messages
+        response = co.generate(
+            model="command-r-plus",  # Or "command-r"
+            prompt=prompt,
+            max_tokens=300,
+            temperature=0.5,
+            stop_sequences=["\n\n"]
         )
-        return response["choices"][0]["message"]["content"]
+        return response.generations[0].text.strip()
     except Exception as e:
-        return f"⚠️ Claude API error: {e}"
+        return f"⚠️ Cohere API error: {e}"
