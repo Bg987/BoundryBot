@@ -20,6 +20,8 @@ def ask(question, dataset_text):
             prompt=prompt,
             max_tokens=300,
             temperature=0,
+            top_p=1,            
+            top_k=0,
             stop_sequences=["\n\n"]
         )
         return response.generations[0].text.strip()
