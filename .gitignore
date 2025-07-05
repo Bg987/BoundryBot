@@ -9,6 +9,7 @@ __pycache__/
 .env
 *.env
 
+
 # Jupyter / notebook checkpoints (if used)
 .ipynb_checkpoints/
 
