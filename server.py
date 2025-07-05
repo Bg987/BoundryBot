@@ -28,7 +28,7 @@ def handle_question():
 
 @app.route("/", methods=["GET"])
 def root():
-    return "🏏 IPL Q&A API is running!"
+    return "🏏 IPL Q&A API is running!\nex link {https://boundrybot.onrender.com/ask?question=list of teams in 2012}"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
