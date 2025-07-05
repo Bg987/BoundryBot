@@ -19,7 +19,7 @@ def ask(question, dataset_text):
             model="command-r-plus",  # Or "command-r"
             prompt=prompt,
             max_tokens=300,
-            temperature=0.5,
+            temperature=0,
             stop_sequences=["\n\n"]
         )
         return response.generations[0].text.strip()
