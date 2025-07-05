@@ -5,7 +5,12 @@ from model_util import ask
 import os
 app = Flask(__name__)
 
-CORS(app, origins=["https://ibm-project-frontend-beta.vercel.app/"])
+CORS(app, resources={r"/*": {
+    "origins": "https://ibm-project-frontend-beta.vercel.app",
+    "methods": ["GET", "POST", "OPTIONS"],
+    "allow_headers": ["Content-Type", "Authorization"]
+}}, supports_credentials=True)
+
 
 @app.route("/ask", methods=["GET", "POST"])
 def handle_question():
