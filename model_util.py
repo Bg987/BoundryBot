@@ -9,7 +9,7 @@ co = cohere.Client(os.getenv("COHERE_API_KEY"))
 def ask(question, dataset_text):
     prompt = (
         "You are an IPL cricket expert. "
-        "Answer only based on the data below. Give only answer .\n\n"
+        "Answer only based on the data below. Give more detail answer .\n\n"
         f"DATA:\n{dataset_text}\n\n"
         f"QUESTION:\n{question}"
     )
@@ -18,7 +18,7 @@ def ask(question, dataset_text):
         response = co.generate(
             model="command-r-plus",  # Or "command-r"
             prompt=prompt,
-            max_tokens=300,
+            max_tokens=500,
             temperature=0,
             p=1,            
             k=0,
