@@ -2,3 +2,4 @@ Flask
 pandas
 cohere
 python-dotenv
+flask_cors
