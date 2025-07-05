@@ -2,7 +2,7 @@
 from flask import Flask, request, jsonify
 from process_data import get_filtered_data, get_full_data
 from model_util import ask
-import os
+import os 
 app = Flask(__name__)
 
 @app.route("/ask", methods=["GET", "POST"])
