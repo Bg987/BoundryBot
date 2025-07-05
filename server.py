@@ -1,17 +1,18 @@
-
 from flask import Flask, request, jsonify
+from flask_cors import CORS  # <-- import CORS
 from process_data import get_filtered_data, get_full_data
 from model_util import ask
 import os
+
 app = Flask(__name__)
+
+CORS(app, origins=["https://ibm-project-frontend-beta.vercel.app/"])
 
 @app.route("/ask", methods=["GET", "POST"])
 def handle_question():
-    # Allow question via query param (GET)
     if request.method == "GET":
         question = request.args.get("question")
     else:
-        # For POST requests (JSON body)
         data = request.get_json()
         question = data.get("question") if data else None
 
@@ -35,4 +36,3 @@ def root():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
-
