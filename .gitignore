@@ -27,7 +27,7 @@ env/
 
 # Logs or debug files (if any)
 *.log
-__pycache__/
+__pycache__
 
 # CSVs (optional, if you want to ignore dataset files in Git)
 # Remove this line if you want to keep matches.csv in your repo
