@@ -9,7 +9,7 @@ co = cohere.Client(os.getenv("COHERE_API_KEY"))
 def ask(question, dataset_text):
     prompt = (
         "You are an IPL cricket expert. "
-        "Answer only based on the data below. Give more detail answer .\n\n"
+        "Answer only based on the data below if answer not present in dataset kindle tell. Give more detail answer .\n\n"
         f"DATA:\n{dataset_text}\n\n"
         f"QUESTION:\n{question}"
     )
