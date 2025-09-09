@@ -18,7 +18,7 @@ def ask(question, dataset_text):
         response = co.generate(
             model="command-r-plus",  # Or "command-r"
             prompt=prompt,
-            max_tokens=500,
+            max_tokens=50000,
             temperature=0,
             p=1,            
             k=0,
