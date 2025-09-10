@@ -23,7 +23,7 @@ def handle_question():
     if not question:
         return jsonify({"error": "Missing 'question'"}), 400
 
-    dataset_text, info = get_full_data(question)
+    dataset_text, info = get_full_data()
     answer = ask(question, dataset_text)
 
     return jsonify({
